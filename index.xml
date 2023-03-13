@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>@aegilops website</title>
+    <link>https://aegilops.github.io/</link>
+    <description>Recent content on @aegilops website</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    <lastBuildDate>Mon, 13 Mar 2023 09:58:02 +0000</lastBuildDate><atom:link href="https://aegilops.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Regex for GitHub Secret Scanning</title>
+      <link>https://aegilops.github.io/posts/regex-for-secret-scanning/</link>
+      <pubDate>Mon, 13 Mar 2023 09:58:02 +0000</pubDate>
+      
+      <guid>https://aegilops.github.io/posts/regex-for-secret-scanning/</guid>
+      <description>Regex for GitHub Secret Scanning Regular Expressions (regex) are the butt of many a joke - &amp;ldquo;now you have two problems&amp;rdquo;, but they&amp;rsquo;re a powerful tool for searching and matching text.
+As someone who&amp;rsquo;s been jokingly called &amp;ldquo;The King of Regex&amp;rdquo; 👑 before, I&amp;rsquo;ve got a little bit to say about them.
+They&amp;rsquo;re used in many places, including GitHub&amp;rsquo;s Secret Scanning, where as part of Advanced Security they give you the ability to match your own patterns to search for secrets or personal data (or anything you like!</description>
+    </item>
+    
+    <item>
+      <title>Intro</title>
+      <link>https://aegilops.github.io/posts/intro/</link>
+      <pubDate>Fri, 10 Mar 2023 15:11:32 +0000</pubDate>
+      
+      <guid>https://aegilops.github.io/posts/intro/</guid>
+      <description>Hi, I&amp;rsquo;m Paul 👋 I&amp;rsquo;m Paul, aka aegilops. That&amp;rsquo;s my GitHub handle. It means nothing deeper than being a word with all of the letters in alphabetic order, which wasn&amp;rsquo;t already taken! It&amp;rsquo;s said ee-ji-lops (or ˈē-jə-ˌläps for anyone who knows IPA).
+I&amp;rsquo;ve got a background in computer security, having done a couple of decades of network security, AppSec, vulnerability research and research &amp;amp; development.
+I started work at GitHub at the end of May 2022.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en-gb">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Regex for GitHub Secret Scanning | @aegilops website</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="Regex for GitHub Secret Scanning Regular Expressions (regex) are the butt of many a joke - &ldquo;now you have two problems&rdquo;, but they&rsquo;re a powerful tool for searching and matching text.
+As someone who&rsquo;s been jokingly called &ldquo;The King of Regex&rdquo; 👑 before, I&rsquo;ve got a little bit to say about them.
+They&rsquo;re used in many places, including GitHub&rsquo;s Secret Scanning, where as part of Advanced Security they give you the ability to match your own patterns to search for secrets or personal data (or anything you like!">
+    <meta name="generator" content="Hugo 0.110.0">
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+    
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="Regex for GitHub Secret Scanning" />
+<meta property="og:description" content="Regex for GitHub Secret Scanning Regular Expressions (regex) are the butt of many a joke - &ldquo;now you have two problems&rdquo;, but they&rsquo;re a powerful tool for searching and matching text.
+As someone who&rsquo;s been jokingly called &ldquo;The King of Regex&rdquo; 👑 before, I&rsquo;ve got a little bit to say about them.
+They&rsquo;re used in many places, including GitHub&rsquo;s Secret Scanning, where as part of Advanced Security they give you the ability to match your own patterns to search for secrets or personal data (or anything you like!" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://aegilops.github.io/posts/regex-for-secret-scanning/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-03-13T09:58:02+00:00" />
+<meta property="article:modified_time" content="2023-03-13T09:58:02+00:00" />
+<meta itemprop="name" content="Regex for GitHub Secret Scanning">
+<meta itemprop="description" content="Regex for GitHub Secret Scanning Regular Expressions (regex) are the butt of many a joke - &ldquo;now you have two problems&rdquo;, but they&rsquo;re a powerful tool for searching and matching text.
+As someone who&rsquo;s been jokingly called &ldquo;The King of Regex&rdquo; 👑 before, I&rsquo;ve got a little bit to say about them.
+They&rsquo;re used in many places, including GitHub&rsquo;s Secret Scanning, where as part of Advanced Security they give you the ability to match your own patterns to search for secrets or personal data (or anything you like!"><meta itemprop="datePublished" content="2023-03-13T09:58:02+00:00" />
+<meta itemprop="dateModified" content="2023-03-13T09:58:02+00:00" />
+<meta itemprop="wordCount" content="1934">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Regex for GitHub Secret Scanning"/>
+<meta name="twitter:description" content="Regex for GitHub Secret Scanning Regular Expressions (regex) are the butt of many a joke - &ldquo;now you have two problems&rdquo;, but they&rsquo;re a powerful tool for searching and matching text.
+As someone who&rsquo;s been jokingly called &ldquo;The King of Regex&rdquo; 👑 before, I&rsquo;ve got a little bit to say about them.
+They&rsquo;re used in many places, including GitHub&rsquo;s Secret Scanning, where as part of Advanced Security they give you the ability to match your own patterns to search for secrets or personal data (or anything you like!"/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        @aegilops website
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">Regex for GitHub Secret Scanning</h1>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2023-03-13T09:58:02Z">March 13, 2023</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><h2 id="regex-for-github-secret-scanning">Regex for GitHub Secret Scanning</h2>
+<p>Regular Expressions (regex) are the butt of many a joke - &ldquo;now you have two problems&rdquo;, but they&rsquo;re a powerful tool for searching and matching text.</p>
+<p>As someone who&rsquo;s been jokingly called &ldquo;The King of Regex&rdquo; 👑 before, I&rsquo;ve got a little bit to say about them.</p>
+<p>They&rsquo;re used in many places, including <a href="https://docs.github.com/en/enterprise-cloud@latest/code-security/secret-scanning/about-secret-scanning">GitHub&rsquo;s Secret Scanning</a>, where as part of <a href="https://resources.github.com/contact/security/">Advanced Security</a> they give you the ability to match your own patterns to search for secrets or personal data (or anything you like!) in your code files.</p>
+<h2 id="what-secret-scanning-is-and-why-i-care">What Secret Scanning is and why I care</h2>
+<p>A great part of GitHub is our secret scanning. That looks for keys 🔑, passwords 💬 and tokens 🔐 that should be kept secret 🤫 and not published into GitHub repos.</p>
+<p>Customers paying for <a href="https://resources.github.com/contact/security/">GitHub Advanced Security</a> on GitHub Enterprise can write their own custom patterns to use with secret scanning, to cover vendors or contexts for secrets that aren&rsquo;t yet included in the vendor patterns baked into the product.</p>
+<p>I work as a security specialist for GitHub, on Advanced Security, so I&rsquo;ve dived into how I can use my regex knowledge to write custom patterns.</p>
+<h2 id="how-to-write-custom-patterns">How to write custom patterns</h2>
+<p>You can follow the instructions in the <a href="https://docs.github.com/en/enterprise-cloud@latest/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning">GitHub Docs</a> to write your own custom patterns.</p>
+<p>If you need an introduction to regex, I suggest <a href="https://regexone.com/">RegexOne</a>. <a href="https://regexr.com/">Regexr</a> is a great tool for testing your regex, but be aware that it doesn&rsquo;t work exactly like the custom pattern syntax. More on that below.</p>
+<p>I don&rsquo;t plan to teach you how to use regex here, so if you&rsquo;re not familiar with them, bookmark this, take a pause and read an intro, then come back when you know the syntax and you&rsquo;ve tried some of the basics out.</p>
+<h2 id="and-thats-all-folks">And that&rsquo;s all folks?</h2>
+<p>Do we just need to apply standard regex knowledge to write custom patterns?</p>
+<p>Not quite. There are a few things to be aware of when writing your own custom patterns.</p>
+<p>The first is that the regex engine used by Secret Scanning is a version of <a href="https://intel.github.io/hyperscan/dev-reference/preface.html">Hyperscan</a>, Intel&rsquo;s high-performance engine for regular expression matching. This is a very fast regex engine, but it has some differences from other regex engines, such as the one used by Python&rsquo;s <code>re</code> module, or what you are used to in JavaScript.</p>
+<p>First, it doesn&rsquo;t allow <strong>backreferences</strong>.</p>
+<p>Those are what look like <code>\1</code> or <code>\2</code> in your regex, to refer back to previous capture groups in your regex. If I have a regex like <code>(['&quot;]).*?\1</code> that lets me look for either a single or double quote, matching anything in-between, and then stop when I see the next matching quote. Hyperscan doesn&rsquo;t support that, so you have to be creative, or have two separate custom patterns.</p>
+<p>Second, it doesn&rsquo;t support <strong>lookaround expressions</strong>.</p>
+<p>These are the expressions that look like <code>(?=...)</code> or <code>(?!...)</code> that let you look ahead or look behind in your regex. Here, you can use the feature of Secret Scanning Custom Patterns that defines a &ldquo;context&rdquo; for your pattern, to look for a pattern before or after your custom pattern. This mostly works, but there are still some cases where I&rsquo;d really love to have lookaround! 😔</p>
+<p>The tradeoff for this loss of expressiveness is that Hyperscan is <em>very fast</em>, and can match many patterns in parallel.</p>
+<h2 id="common-regex-errors">Common regex errors</h2>
+<p>I also wanted to touch on a couple of errors that I&rsquo;ve seen or heard of in regex in general, and some in custom patterns, and how to avoid them.</p>
+<h3 id="redos">ReDoS</h3>
+<p>ReDoS is &ldquo;Regular Expression Denial of Service&rdquo; 🙅‍♂️. It happens when a regex can be made to take a very long time to match with a short amount of input, which can cause a denial of service by consuming lots of RAM or taking a long time to match.</p>
+<p>It&rsquo;s a form of &ldquo;algorithmic complexity attack&rdquo;. It mostly happens when you have a repetition operator 🔁 that repeats another repetition operator, especially if one is unbounded ∞, or can match zero-length strings (e.g. <code>.*</code>).</p>
+<p>I&rsquo;m not going to give a full tutorial on it here: try OWASP&rsquo;s <a href="https://owasp.org/www-community/attacks/Regular_expression_Denial_of_Service_-_ReDoS">ReDoS</a> page for that.</p>
+<h3 id="wwwexamplecom"><a href="https://www.example.com">www.example.com</a></h3>
+<p>I&rsquo;ve seen a few regex that look for a domain like so: <code>www.example.com</code>.</p>
+<p>They&rsquo;re not quite right. Close, but no cigar.</p>
+<p>The trouble is that this <code>.</code> will match any character! You need to &ldquo;escape&rdquo; the dot, like: <code>www\.example\.com</code>.</p>
+<p>Something similar can be said for the other regex special characters, such as braces, repetition operators, and so on.</p>
+<h3 id="wwwexampleco"><a href="https://www.example.co">www.example.co</a></h3>
+<p>I&rsquo;ve also seen a few regex that look for a domain like this: <code>example\.co</code>.</p>
+<p>That&rsquo;s not quite right either. This overmatches on substrings of longer domains, such as: <code>www.an-example.com</code>.</p>
+<p>We need to exclude characters that can be in the domain on either side of the domain you want to match.</p>
+<p>In custom patterns, the &ldquo;before&rdquo; and &ldquo;after&rdquo; patterns should be used, so the whole thing resembles:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">before</span>: <span style="color:#ae81ff">\A|[^a-zA-Z0-9.-]</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">pattern</span>: <span style="color:#ae81ff">example\.co</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">after</span>: <span style="color:#ae81ff">\z|[^a-zA-Z0-9.-]</span>
+</span></span></code></pre></div><h3 id="matching-a-single-character">Matching a single character</h3>
+<p>I&rsquo;ve also heard of people making regex that look for a single character: <code>a</code>.</p>
+<p>How?! Scripting!</p>
+<p>They meant to loop over each regex in a file, for example, but accidentally looped over every character in each line too.</p>
+<p>Consider this Python:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">for</span> line <span style="color:#f92672">in</span> file<span style="color:#f92672">.</span>readlines():
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> item <span style="color:#f92672">in</span> line:
+</span></span><span style="display:flex;"><span>        print(item)
+</span></span></code></pre></div><p>That&rsquo;s going to individually print every character in each line, not just each line.</p>
+<p>Make sure to test your regex, and if you&rsquo;re using a scripting language, make sure you&rsquo;re looping over the right thing.</p>
+<h3 id="belt-and-braces-1">Belt and braces (1)</h3>
+<p>This one is not <em>wrong</em> so much as <em>untidy</em>.</p>
+<p>If we go back to our quotes example, I see folk do <code>(&quot;|'|)</code> to match an optional single or double quote. It works.</p>
+<p>I much prefer <code>['&quot;]?</code> though, since it&rsquo;s more concise, easier to read, and doesn&rsquo;t need escaping for special characters such as <code>.</code> inside that character class.</p>
+<h3 id="belt-and-braces-2">Belt and braces (2)</h3>
+<p>Again, this isn&rsquo;t wrong, just verbose.</p>
+<p>If you want to repeat a character, you can use curly braces <code>{n,m}</code> to specify a range of repetitions, optionally leaving off the second number to mean &ldquo;n or more&rdquo;, like so: <code>[a-zA-Z0-9]{8,}</code>.</p>
+<p>I&rsquo;ve seen &ldquo;0 or more&rdquo; and &ldquo;1 or more&rdquo; specified as <code>{0,}</code> and <code>{1,}</code>; yet these can be more succinctly expressed as <code>*</code> and <code>+</code> respectively.</p>
+<h3 id="tricky-character-classes">Tricky character classes</h3>
+<p>If you want to look for the <code>-</code> character in a character class, you need to escape it, like so: <code>[=+\-_]</code> or you can place it last, like <code>[=+_-]</code>.</p>
+<p>If you forget and use <code>[=+-_]</code> then it will match a spurious range of characters, such as <code>+</code> to <code>_</code>: not what you wanted!</p>
+<p>There is also a whole load of trouble you can get into by specifying a range that is overly broad. That&rsquo;s more about the logic of the siutation than the regex itself, but it&rsquo;s worth being aware of.</p>
+<p>Let&rsquo;s say we&rsquo;re trying to spot alphabetic characters, so we do: <code>[A-z]</code>. That&rsquo;s does what we want, but it also spots characters between <code>Z</code> and <code>a</code>, such as <code>[</code> and <code>@</code> - not what we intended! Watch those ranges to make sure they&rsquo;re what you want.</p>
+<p>CodeQL has some queries that are designed to spot overly broad ranges in regex, such as <a href="https://github.com/github/codeql/blob/main/javascript/ql/src/Security/CWE-020/OverlyLargeRange.ql">this one for JavaScript</a>. It&rsquo;s important in code, since it can lead to bypasses of security checks, but it&rsquo;s also important in custom patterns, since it can lead to false positives.</p>
+<h3 id="being-over-specific">Being over-specific</h3>
+<p>If we&rsquo;re looking for a password inside quotes, we might do:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">before</span>: <span style="color:#ae81ff">password=\&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">pattern</span>: [<span style="color:#ae81ff">a-zA-Z0-9]{8,}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">after</span>: <span style="color:#ae81ff">\&#34;</span>
+</span></span></code></pre></div><p>Quick note: those escapes before each <code>&quot;</code> are for the sake of this YAML format I am using as an example, but they&rsquo;re not needed in the custom pattern itself.</p>
+<p>That&rsquo;s fine, but why restrict the character set like that? What if someone uses a different language that doesn&rsquo;t just use the Roman alphabet? &ldquo;㊙&rdquo;, anyone? That&rsquo;s the Japanese Kanji character for &ldquo;secret&rdquo;.</p>
+<p>We can change our pattern to generalise it a bit:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">before</span>: <span style="color:#ae81ff">password\s*=\s*\&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">pattern</span>: [<span style="color:#ae81ff">^&#34;\x00-\x08]+</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">after</span>: <span style="color:#ae81ff">\&#34;</span>
+</span></span></code></pre></div><p>Now we grab anything between the quotes that isn&rsquo;t a quote, or a control character (just the first few), which is to avoid matching on binary data.</p>
+<p>We are also adding an awareness that there can be spaces in this imaginary example around the <code>=</code> character.</p>
+<h3 id="being-under-specific-1">Being under-specific (1)</h3>
+<p>If we&rsquo;re looking for a password that is specified on a single line, we might do:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">before</span>: <span style="color:#ae81ff">(\A|\n)password\s*=</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">pattern</span>: [<span style="color:#ae81ff">a-zA-Z0-9\s]+</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">after</span>: <span style="color:#ae81ff">(\z|\n)</span>
+</span></span></code></pre></div><p>Looks fine, right? It&rsquo;s not going to match on a password that is split across multiple lines, right? Right?</p>
+<p>In secret scanning, it will happily match on any newlines, and greedily match, maybe up until the end of the file.</p>
+<p>We can replace that <code>\s</code> with <code>[ \t]</code> instead:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">before</span>: <span style="color:#ae81ff">(\A|\n)password[ \t]*=</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">pattern</span>: [<span style="color:#ae81ff">a-zA-Z0-9 \t]+</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">after</span>: <span style="color:#ae81ff">(\z|\n)</span>
+</span></span></code></pre></div><h3 id="being-under-specific-2">Being under-specific (2)</h3>
+<p>We want to match our password now, and we know if must be 8 characters or longer, and we know the allowed range.</p>
+<p>We might do:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">before</span>: <span style="color:#ae81ff">(\A|\n)password[ \t]*=</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">pattern</span>: [<span style="color:#ae81ff">a-zA-Z0-9 \t]{8,}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">after</span>: <span style="color:#ae81ff">.</span>
+</span></span></code></pre></div><p>Our thinking is that we want to match on the password, and then have anything after it.</p>
+<p>That will work, but we will end up matching on the password several times - we&rsquo;ll match 8 characters, then end because the ninth character matches that <code>.</code>, then match 9 characters, then end because the tenth character matches that <code>.</code>, and so on.</p>
+<p>It&rsquo;s not quite ReDoS, but it&rsquo;s not what we&rsquo;re after.</p>
+<p>We can either tighten up the after pattern, like so:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">before</span>: <span style="color:#ae81ff">(\A|\n)password[ \t]*=</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">pattern</span>: [<span style="color:#ae81ff">a-zA-Z0-9 \t]{8,}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">after</span>: <span style="color:#ae81ff">\z|[^a-zA-Z0-9 \t]</span>
+</span></span></code></pre></div><p>We can also forget about the password character constraints, and just match on the whole line, ignoring some control characters (much as we did before):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">before</span>: <span style="color:#ae81ff">(\A|\n)password[ \t]*=</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">pattern</span>: [<span style="color:#ae81ff">^\n\x00-\x08]*</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">after</span>: <span style="color:#ae81ff">\z|\n</span>
+</span></span></code></pre></div><h3 id="loose-anchors">Loose anchors</h3>
+<p>If we&rsquo;re looking for a password with a defined format, say, 8 characters, we might do:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">before</span>: <span style="color:#ae81ff">.*</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">pattern</span>: [<span style="color:#ae81ff">a-zA-Z0-9]{8}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">after</span>: <span style="color:#ae81ff">.*</span>
+</span></span></code></pre></div><p>That&rsquo;s going to work on small test cases, but in practice it&rsquo;ll grind to a halt. Why?</p>
+<p>The regex is going to match literally anything before the pattern, and literally anything after the pattern, and select those as part of the match done by Hyperscan. That could be GBs of data, and Hyperscan will happily match on it.</p>
+<p>Not only that, it&rsquo;ll match all substrings of that - 1 character less than the whole match, 2 characters less, and so on. That&rsquo;s a form of ReDoS, and it&rsquo;s not good.</p>
+<p>We can fix this by tightening up the anchors, like so:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">before</span>: <span style="color:#ae81ff">\A|[^a-zA-Z0-9]</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">pattern</span>: [<span style="color:#ae81ff">a-zA-Z0-9]{8}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">after</span>: <span style="color:#ae81ff">\z|[^a-zA-Z0-9]</span>
+</span></span></code></pre></div><p>In case you&rsquo;re wondering why the before and after matches are not just <code>[^a-zA-Z0-9]</code>, it&rsquo;s because we want to be able to match on this pattern right at the start or end of the content.</p>
+<p><code>\A</code> and <code>\z</code> are the anchors for the start and end of the file, respectively. They work like <code>^</code> and <code>$</code>, which you are probably more used to as anchors, but are more specific to what we want with custom patterns.</p>
+<p><code>\z</code> is particularly useful, since it spots either the end of a file, or a newline at the end of a file. That saves us hassle in specifying that ourselves. Nice!</p>
+<h2 id="that-really-is-all-now">That really is all now</h2>
+<p>That&rsquo;s all I wanted to cover for now. There are some more custom pattern topics that I might cover in future, such as how to test them, and walking over some of the custom patterns that we&rsquo;ve <a href="https://github.com/advanced-security/secret-scanning-custom-patterns">written in Field for secret scanning</a>, but that&rsquo;s enough for now.</p>
+<p>There are plenty of other ways to trip up with regex, some of which are covered in this <a href="https://subscription.packtpub.com/book/application-development/9781787288706/8/ch08lvl1sec35/common-pitfalls-and-ways-to-avoid-them-while-writing-regular-expressions">page on packt</a>.</p>
+<p>Hope this helped you avoid some of these regex pitfalls; happy regexing!</p>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://aegilops.github.io/" >
+    &copy;  @aegilops website 2023 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>
