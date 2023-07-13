@@ -6,7 +6,19 @@
     <description>Recent content on @aegilops website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <lastBuildDate>Mon, 13 Mar 2023 09:58:02 +0000</lastBuildDate><atom:link href="https://aegilops.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 13 Jul 2023 10:03:02 +0100</lastBuildDate><atom:link href="https://aegilops.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>New Github Secret Scanning Custom Patterns</title>
+      <link>https://aegilops.github.io/posts/new-github-secret-scanning-custom-patterns/</link>
+      <pubDate>Thu, 13 Jul 2023 10:03:02 +0100</pubDate>
+      
+      <guid>https://aegilops.github.io/posts/new-github-secret-scanning-custom-patterns/</guid>
+      <description>GitHub Secret Scanning gives loads of value off-the-shelf, with highly precise vendor secret detection, but sometimes a customer wants something that isn&amp;rsquo;t already covered by the built-in patterns.
+For that, our custom patterns for Advanced Security are perfect, and I&amp;rsquo;ve just released some that I&amp;rsquo;ve written for a couple of customers (and also on a whim).
+Here&amp;rsquo;s the list:
+.NET Configuration file, e.g. &amp;lt;add key=&amp;quot;password&amp;quot; value=&amp;quot;somesecret&amp;quot; /&amp;gt; .NET machineKey, e.g. &amp;lt;machineKey validationKey=&amp;quot;.</description>
+    </item>
+    
     <item>
       <title>Regex for GitHub Secret Scanning</title>
       <link>https://aegilops.github.io/posts/regex-for-secret-scanning/</link>
