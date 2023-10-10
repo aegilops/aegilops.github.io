@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en-gb">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>I wrote a Python Linting Code Scanning Action | @aegilops website</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="A GitHub Action to lint Python code, for GitHub Code Scanning Recently I ran a training &ldquo;bootcamp&rdquo; for a customer on GitHub Advanced Security, and the topic of code quality came up.
+Pinning down just what we mean by &ldquo;code quality&rdquo; can be a bit tricky: witness the debates over Uncle Bob&rsquo;s work on &ldquo;clean code&rdquo;. It&rsquo;s fair to say that it&rsquo;s often about other factors of the code than the security of the code, which is the main focus of Advanced Security (the clue is in the name).">
+    <meta name="generator" content="Hugo 0.110.0">
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+    
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="I wrote a Python Linting Code Scanning Action" />
+<meta property="og:description" content="A GitHub Action to lint Python code, for GitHub Code Scanning Recently I ran a training &ldquo;bootcamp&rdquo; for a customer on GitHub Advanced Security, and the topic of code quality came up.
+Pinning down just what we mean by &ldquo;code quality&rdquo; can be a bit tricky: witness the debates over Uncle Bob&rsquo;s work on &ldquo;clean code&rdquo;. It&rsquo;s fair to say that it&rsquo;s often about other factors of the code than the security of the code, which is the main focus of Advanced Security (the clue is in the name)." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://aegilops.github.io/posts/python-linting-code-scanning-action/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-10-10T13:11:47+01:00" />
+<meta property="article:modified_time" content="2023-10-10T13:11:47+01:00" />
+<meta itemprop="name" content="I wrote a Python Linting Code Scanning Action">
+<meta itemprop="description" content="A GitHub Action to lint Python code, for GitHub Code Scanning Recently I ran a training &ldquo;bootcamp&rdquo; for a customer on GitHub Advanced Security, and the topic of code quality came up.
+Pinning down just what we mean by &ldquo;code quality&rdquo; can be a bit tricky: witness the debates over Uncle Bob&rsquo;s work on &ldquo;clean code&rdquo;. It&rsquo;s fair to say that it&rsquo;s often about other factors of the code than the security of the code, which is the main focus of Advanced Security (the clue is in the name)."><meta itemprop="datePublished" content="2023-10-10T13:11:47+01:00" />
+<meta itemprop="dateModified" content="2023-10-10T13:11:47+01:00" />
+<meta itemprop="wordCount" content="974">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="I wrote a Python Linting Code Scanning Action"/>
+<meta name="twitter:description" content="A GitHub Action to lint Python code, for GitHub Code Scanning Recently I ran a training &ldquo;bootcamp&rdquo; for a customer on GitHub Advanced Security, and the topic of code quality came up.
+Pinning down just what we mean by &ldquo;code quality&rdquo; can be a bit tricky: witness the debates over Uncle Bob&rsquo;s work on &ldquo;clean code&rdquo;. It&rsquo;s fair to say that it&rsquo;s often about other factors of the code than the security of the code, which is the main focus of Advanced Security (the clue is in the name)."/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        @aegilops website
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">I wrote a Python Linting Code Scanning Action</h1>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2023-10-10T13:11:47+01:00">October 10, 2023</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><h2 id="a-github-action-to-lint-python-code-for-github-code-scanning">A GitHub Action to lint Python code, for GitHub Code Scanning</h2>
+<p>Recently I ran a training &ldquo;bootcamp&rdquo; for a customer on <a href="https://resources.github.com/contact/security/">GitHub Advanced Security</a>, and the topic of code quality came up.</p>
+<p>Pinning down just what we mean by &ldquo;code quality&rdquo; <em>can</em> be a bit tricky: witness the debates over Uncle Bob&rsquo;s work on &ldquo;clean code&rdquo;. It&rsquo;s fair to say that it&rsquo;s often about other factors of the code than the security of the code, which is the main focus of Advanced Security (the clue is in the name). We&rsquo;re talking performance, readability, maintainability, and so on.</p>
+<p>It isn&rsquo;t like there&rsquo;s been a lack of thought on the topic; there&rsquo;s even an <a href="https://www.iso.org/obp/ui/en/#iso:std:iso-iec:25010:ed-1:v1:en">ISO standard for it</a>, but that doesn&rsquo;t mean every tool means the same thing by &ldquo;quality&rdquo;, even so.</p>
+<p>We do have code quality rules for Advanced Security, that can be run with CodeQL, but developers are often familiar with a linting 🧹 tool for their language of choice, and want to use that, and we encourage integrating 3rd party tools into Code Scanning.</p>
+<p>What&rsquo;s a <a href="https://en.wikipedia.org/wiki/Lint_(software)">linter</a>?</p>
+<blockquote>
+<p>Lint is the computer science term for a static code analysis tool used to flag programming errors, bugs, stylistic errors and suspicious constructs</p>
+</blockquote>
+<p>Thanks Wikipedia!</p>
+<p>There is a lot of innovation in the linting space, and cheap approaches can produce good results for linting — in constrast to security results, which can really suffer if produced by a simpler tool — and the community is often really great at producing rules and plugins for linters.</p>
+<p>Some linters have been integrated in Code Scanning already, but that isn&rsquo;t the case for Python, other than the <a href="https://github.com/marketplace/actions/bandit-scan">Bandit security linter</a>.</p>
+<p>In the Python 🐍 world there has been a proliferation of great linters and type checkers, and I wanted to see if I could use them to produce a GitHub Action that would work with Code Scanning. Plenty of GitHub Actions exist to run one or more Python linters, but they don&rsquo;t work with Code Scanning.</p>
+<p>I needed something to run the linters and turn the output into <a href="https://www.sarif.info/">SARIF</a>, which is the standard for SAST results (and that GitHub helps design).</p>
+<p>This is the result, started in the airport 🛫 on the way home from the training, and finished over the last couple of weeks:</p>
+<blockquote>
+<p><a href="https://github.com/marketplace/actions/python-lint-code-scanning-action">Python linting Code Scanning Action</a></p>
+</blockquote>
+<p>I suggest if you want to read about how to use it you follow that link, read the README, and dive in.</p>
+<p>Carry on reading here for a bit more background on the decisions behind it.</p>
+<h3 id="how-i-wrote-it">How I wrote it</h3>
+<p>I started by deciding which work I wanted to do, and which to delegate to the linters and type checkers (I&rsquo;ll just say &ldquo;linters&rdquo; from now).</p>
+<p>The first major decision is whether to try to replicate what the linters are doing in CodeQL instead of using them directly. Replicating the linters was a non-starter for me, but worth mentioning. The linters will do the work.</p>
+<p>Configuration was an obvious choice to delegate. I wanted to use the same configuration as the linters, so that the Action would be familiar to developers who already use the linters, and I didn&rsquo;t have to design a universal configuration format that would try to account for the variation in the linters. Configuration was to be done using the configuration file for each linter.</p>
+<p>I didn&rsquo;t want to have to fork or change the linters to be able to use them, so I needed to run them and then transform their output into SARIF myself. In some cases the linter already has a JSON output option, so I can transform that reasonably easily; in others I was parsing human-readable text output. In one case, Flake8, it has a plugin system, so I wrote my own <a href="https://pypi.org/project/flake8-sarif-formatter/"><code>flake8-sarif-formatter</code></a> for it. There was an existing <code>flake8-sarif</code> module on PyPi, but the source repo is 404, making me worried about relying on it, so I decided to write my own independently.</p>
+<p>Picking which linters to support was fairly easy, and I decided to support type checkers as well. I picked the most popular linters and type checkers, and the ones that I was familiar with. I ended up with <a href="https://www.pylint.org/">Pylint</a>, <a href="https://flake8.pycqa.org/en/latest/">Flake8</a>, <a href="https://beta.ruff.rs/">Ruff</a>, <a href="https://fixit.readthedocs.io/en/stable/">Fixit 2</a>, <a href="https://mypy.readthedocs.io/en/stable/">Mypy</a>, <a href="https://github.com/microsoft/pyright">Pyright</a> and <a href="https://github.com/google/pytype/">Pytype</a>.</p>
+<p>I didn&rsquo;t include <a href="https://pyre-check.org/">Pyre</a> since I&rsquo;ve had problems with it in the past; I tried it out for this and again didn&rsquo;t get on with it. I can&rsquo;t quite recall why! I also didn&rsquo;t include <a href="https://bandit.readthedocs.io/en/latest/">Bandit</a>, since it&rsquo;s a <em>security</em> linter, and I wanted to focus on code quality — there&rsquo;s <a href="https://github.com/marketplace/actions/bandit-scan">an existing Code Scanning Action for Bandit</a>, if you want to use it.</p>
+<p>At first I thought since I was running Python linters I would be able to load the linters as Python modules in a Python script, but that turned out not to be possible. I think <em>one</em> was callable as a Python module, but it didn&rsquo;t have a maintained API to get results. Instead I called them as command-line tools, and parsed their output.</p>
+<p>Some of the linters gave reasonably helpful rule descriptions in their output, but a few didn&rsquo;t, so I had to rely on creating my own from the individual alert messages, or from the name of the rule. Rule descriptions are important for Code Scanning, since they are used as the title of the alert, rather than the alert message.</p>
+<h3 id="the-result">The result</h3>
+<p>The result is <a href="https://github.com/marketplace/actions/python-lint-code-scanning-action">a GitHub Action</a> that can be used from an Actions workflow to lint Python code, and produce results in Code Scanning.</p>
+<p>I&rsquo;ve tested it on a few repositories, and it seems to work well. I&rsquo;ve also used it to lint the code in the Action itself, and it found a few issues that I was able to fix.</p>
+<p>Hope you find it useful; if you have any feedback, please <a href="https://github.com/advanced-security/python-lint-code-scanning-action/issues/new">open an issue</a> or <a href="https://github.com/advanced-security/python-lint-code-scanning-action/discussions">start a discussion</a> on the repo.</p>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://aegilops.github.io/" >
+    &copy;  @aegilops website 2023 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>
