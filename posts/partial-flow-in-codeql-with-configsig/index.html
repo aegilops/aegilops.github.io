@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en-gb">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Partial Flow in CodeQL With ConfigSig | @aegilops website</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="CodeQL is an ever-evolving static code analysis engine, which powers GitHub&rsquo;s SAST.
+It&rsquo;s powerful, but it&rsquo;s not perfect, and sometimes you need to debug queries to understand why they&rsquo;re not behaving as you&rsquo;d expect.
+One great tool for that is &ldquo;partial paths&rdquo;, which lets you see the dataflow or taint steps that a query is flowing over, so you can see where the flow might have broken between a source and a sink.">
+    <meta name="generator" content="Hugo 0.110.0">
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+    
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="Partial Flow in CodeQL With ConfigSig" />
+<meta property="og:description" content="CodeQL is an ever-evolving static code analysis engine, which powers GitHub&rsquo;s SAST.
+It&rsquo;s powerful, but it&rsquo;s not perfect, and sometimes you need to debug queries to understand why they&rsquo;re not behaving as you&rsquo;d expect.
+One great tool for that is &ldquo;partial paths&rdquo;, which lets you see the dataflow or taint steps that a query is flowing over, so you can see where the flow might have broken between a source and a sink." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://aegilops.github.io/posts/partial-flow-in-codeql-with-configsig/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-11-06T14:20:00+00:00" />
+<meta property="article:modified_time" content="2023-11-06T14:20:00+00:00" />
+<meta itemprop="name" content="Partial Flow in CodeQL With ConfigSig">
+<meta itemprop="description" content="CodeQL is an ever-evolving static code analysis engine, which powers GitHub&rsquo;s SAST.
+It&rsquo;s powerful, but it&rsquo;s not perfect, and sometimes you need to debug queries to understand why they&rsquo;re not behaving as you&rsquo;d expect.
+One great tool for that is &ldquo;partial paths&rdquo;, which lets you see the dataflow or taint steps that a query is flowing over, so you can see where the flow might have broken between a source and a sink."><meta itemprop="datePublished" content="2023-11-06T14:20:00+00:00" />
+<meta itemprop="dateModified" content="2023-11-06T14:20:00+00:00" />
+<meta itemprop="wordCount" content="749">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Partial Flow in CodeQL With ConfigSig"/>
+<meta name="twitter:description" content="CodeQL is an ever-evolving static code analysis engine, which powers GitHub&rsquo;s SAST.
+It&rsquo;s powerful, but it&rsquo;s not perfect, and sometimes you need to debug queries to understand why they&rsquo;re not behaving as you&rsquo;d expect.
+One great tool for that is &ldquo;partial paths&rdquo;, which lets you see the dataflow or taint steps that a query is flowing over, so you can see where the flow might have broken between a source and a sink."/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        @aegilops website
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">Partial Flow in CodeQL With ConfigSig</h1>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2023-11-06T14:20:00Z">November 6, 2023</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><p><a href="https://codeql.github.com/">CodeQL</a> is an ever-evolving static code analysis engine, which powers GitHub&rsquo;s SAST.</p>
+<p>It&rsquo;s powerful, but it&rsquo;s not perfect, and sometimes you need to debug queries to understand why they&rsquo;re not behaving as you&rsquo;d expect.</p>
+<p>One great tool for that is &ldquo;partial paths&rdquo;, which lets you see the dataflow or taint steps that a query is flowing over, so you can see where the flow might have broken between a source and a sink.</p>
+<blockquote>
+<p>💡 to understand source/sink/dataflow/taint terminology, head over to <a href="https://github.blog/2023-03-31-codeql-zero-to-hero-part-1-the-fundamentals-of-static-analysis-for-vulnerability-research/">the GitHub blog</a></p>
+</blockquote>
+<p>Partial paths are used by modifying an existing CodeQL query to alter a normal path query to a partial path query.</p>
+<p><a href="https://geekmasher.dev/sast/codeql/22-12-10--codeql-partical-paths/">This previous guide on partial paths</a> is helpful for understanding the concept, but because the implementation of dataflow and taint in CodeQL has changed, the syntax they suggest no longer applies.</p>
+<h2 id="path-queries-in-codeql-in-python">Path queries in CodeQL in Python</h2>
+<p>Before we get started on partial paths, let&rsquo;s take a look at how path queries work in CodeQL, in Python.</p>
+<p>The docs for <a href="https://codeql.github.com/docs/codeql-language-guides/analyzing-data-flow-in-python/">dataflow in Python with CodeQL</a> show that we now have to implement a <code>ConfigSig</code> <em>module</em>, vs overriding a <code>DataFlow::Configuration</code> or <code>TaintTracking::Configuration</code> <em>class</em>, which have been deprecated.</p>
+<p>Let&rsquo;s start with an example, the SQL injection query for Python:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Ceylon" data-lang="Ceylon"><span style="display:flex;"><span><span style="color:#75715e">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * @name SQL query built from user-controlled sources
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * @description Building a SQL query from user-controlled sources is vulnerable to insertion of
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> *              malicious SQL code by the user.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * @kind path-problem
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * @problem.severity error
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * @security-severity 8.8
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * @precision high
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * @id py/sql-injection
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * @tags security
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> *       external/cwe/cwe-089
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> */</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> python
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> semmle.python.security.dataflow.SqlInjectionQuery
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> <span style="color:#960050;background-color:#1e0010">S</span>qlInjectionFlow<span style="color:#f92672">::</span>PathGraph
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>from SqlInjectionFlow:<span style="color:#f92672">:</span>PathNode source<span style="color:#f92672">,</span> SqlInjectionFlow:<span style="color:#f92672">:</span>PathNode sink
+</span></span><span style="display:flex;"><span>where SqlInjectionFlow:<span style="color:#f92672">:</span>flowPath<span style="color:#f92672">(</span>source<span style="color:#f92672">,</span> sink<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>select sink<span style="color:#f92672">.</span><span style="color:#a6e22e">getNode</span><span style="color:#f92672">(),</span> source<span style="color:#f92672">,</span> sink<span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;This SQL query depends on a $@.&#34;</span><span style="color:#f92672">,</span> source<span style="color:#f92672">.</span><span style="color:#a6e22e">getNode</span><span style="color:#f92672">(),</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;user-provided value&#34;</span>
+</span></span></code></pre></div><p>This doesn&rsquo;t look an <em>awful</em> lot different to previous queries, but notice that the <code>SqlInjectionFlow::PathGraph</code> module is imported, and the <code>SqlInjectionFlow::flowPath</code> predicate is used, whereas in the past those would be directly referenced from the <code>DataFlow</code> or <code>TaintTracking</code> modules.</p>
+<p>We have a <code>from</code> clause that defines the source and sink, and a <code>where</code> clause that defines the flow path between them, and finally a <code>select</code> clause that defines what we want to see in the results.</p>
+<p>Let&rsquo;s dig into the implementation of the imported <code>SqlInjectionQuery</code> library. Slightly abbreviated, that looks like:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Ceylon" data-lang="Ceylon"><span style="display:flex;"><span>private <span style="color:#f92672">import</span> python
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> semmle.python.dataflow.new.DataFlow
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> semmle.python.dataflow.new.TaintTracking
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> <span style="color:#960050;background-color:#1e0010">S</span>qlInjectionCustomizations<span style="color:#f92672">::</span>SqlInjection
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>private <span style="color:#f92672">module</span> SqlInjectionConfig implements DataFlow:<span style="color:#f92672">:</span>ConfigSig <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  predicate <span style="color:#a6e22e">isSource</span><span style="color:#f92672">(</span>DataFlow:<span style="color:#f92672">:</span>Node source<span style="color:#f92672">)</span> <span style="color:#f92672">{</span> source instanceof Source <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>  predicate <span style="color:#a6e22e">isSink</span><span style="color:#f92672">(</span>DataFlow:<span style="color:#f92672">:</span>Node sink<span style="color:#f92672">)</span> <span style="color:#f92672">{</span> sink instanceof Sink <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>  predicate <span style="color:#a6e22e">isBarrier</span><span style="color:#f92672">(</span>DataFlow:<span style="color:#f92672">:</span>Node node<span style="color:#f92672">)</span> <span style="color:#f92672">{</span> node instanceof Sanitizer <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">module</span> SqlInjectionFlow <span style="color:#f92672">=</span> TaintTracking:<span style="color:#f92672">:</span>Global<span style="color:#f92672">&lt;</span>SqlInjectionConfig<span style="color:#f92672">&gt;;</span>
+</span></span></code></pre></div><p>You might be asking &ldquo;where are the sources and sinks defined?&rdquo;, and the answer is the <code>SqlInjectionCustomizations</code> module. I&rsquo;m not going to dive into that - it&rsquo;s some CodeQL predicates that aren&rsquo;t necessary to understand partial paths.</p>
+<p>The exports from that library are <code>SqlInjectionFlow</code>, which we can see being used in the query above, and the <code>SqlInjectionCustomizations</code> module, which is where the sources and sinks are defined, as well as (for convenience) the generic <code>DataFlow</code> and <code>TaintTracking</code> modules.</p>
+<h2 id="partial-paths-in-codeql-in-python">Partial paths in CodeQL in Python</h2>
+<p>Now we&rsquo;re ready to look at partial paths. Let&rsquo;s take the same query as above, and modify it to use partial paths:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Ceylon" data-lang="Ceylon"><span style="display:flex;"><span><span style="color:#75715e">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * @kind path-problem
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> */</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> python
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> semmle.python.security.dataflow.SqlInjectionQuery
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>int <span style="color:#a6e22e">explorationLimit</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span> result <span style="color:#f92672">=</span> <span style="color:#ae81ff">20</span> <span style="color:#f92672">}</span>  <span style="color:#75715e">// [1]
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#f92672">module</span> FlowsPartial <span style="color:#f92672">=</span> SqlInjectionFlow:<span style="color:#f92672">:</span>FlowExploration<span style="color:#f92672">&lt;</span>explorationLimit<span style="color:#f92672">/</span><span style="color:#ae81ff">0</span><span style="color:#f92672">&gt;;</span>   <span style="color:#75715e">// [2]
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> <span style="color:#960050;background-color:#1e0010">F</span>lowsPartial<span style="color:#f92672">::</span>PartialPathGraph  <span style="color:#75715e">// [3]
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>from FlowsPartial:<span style="color:#f92672">:</span>PartialPathNode source<span style="color:#f92672">,</span> FlowsPartial:<span style="color:#f92672">:</span>PartialPathNode sink  <span style="color:#75715e">// [4]
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>where FlowsPartial:<span style="color:#f92672">:</span>partialFlow<span style="color:#f92672">(</span>source<span style="color:#f92672">,</span> sink<span style="color:#f92672">,</span> _<span style="color:#f92672">)</span>  <span style="color:#75715e">// [5]
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>select sink<span style="color:#f92672">.</span><span style="color:#a6e22e">getNode</span><span style="color:#f92672">(),</span> source<span style="color:#f92672">,</span> sink<span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;This node receives taint from $@.&#34;</span><span style="color:#f92672">,</span> source<span style="color:#f92672">.</span><span style="color:#a6e22e">getNode</span><span style="color:#f92672">(),</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;this source&#34;</span>
+</span></span></code></pre></div><p>We needed to make several changes on the lines marked 1-5:</p>
+<ol>
+<li>Add an <code>explorationLimit</code> predicate, to limit the length of paths we explore.</li>
+<li>Create a <code>FlowsPartial</code> (the name is my choice) specialising the <code>FlowExploration</code> module in <code>SqlInjectionFlow</code> with our <code>explorationLimit</code> predicate (the <code>/0</code> means it takes no arguments).</li>
+<li>Import the <code>PartialPathGraph</code> module from the <code>FlowsPartial</code> module we created in step 2, instead of <code>PathGraph</code> from <code>SqlInjectionFlow</code>.</li>
+<li>Import the <code>PartialPathNode</code> type from <code>FlowsPartial</code>.</li>
+<li>Use the <code>partialFlow</code> predicate from <code>FlowsPartial</code>.</li>
+</ol>
+<p>This completely ignores the <code>sink</code> definition in the config.</p>
+<p>That query is enough to get us forward partial flow paths. If you run it, you get one result for each flow step along the path, like this:</p>
+<p><img src="partial-flow-results.png" alt="Partial flow results"></p>
+<p>We can also get reverse partial flow paths, by using the <code>partialFlowRev</code> predicate instead of <code>partialFlow</code>; that takes us from the sink to the source, and ignores the <code>source</code> definition in the config.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Partial paths are a great way to debug CodeQL dataflow and taint queries, and they&rsquo;re not too hard to implement, once you know how.</p>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://aegilops.github.io/" >
+    &copy;  @aegilops website 2023 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

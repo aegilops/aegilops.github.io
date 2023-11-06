@@ -6,7 +6,18 @@
     <description>Recent content in Posts on @aegilops website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <lastBuildDate>Tue, 10 Oct 2023 13:11:47 +0100</lastBuildDate><atom:link href="https://aegilops.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 06 Nov 2023 14:20:00 +0000</lastBuildDate><atom:link href="https://aegilops.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Partial Flow in CodeQL With ConfigSig</title>
+      <link>https://aegilops.github.io/posts/partial-flow-in-codeql-with-configsig/</link>
+      <pubDate>Mon, 06 Nov 2023 14:20:00 +0000</pubDate>
+      
+      <guid>https://aegilops.github.io/posts/partial-flow-in-codeql-with-configsig/</guid>
+      <description>CodeQL is an ever-evolving static code analysis engine, which powers GitHub&amp;rsquo;s SAST.
+It&amp;rsquo;s powerful, but it&amp;rsquo;s not perfect, and sometimes you need to debug queries to understand why they&amp;rsquo;re not behaving as you&amp;rsquo;d expect.
+One great tool for that is &amp;ldquo;partial paths&amp;rdquo;, which lets you see the dataflow or taint steps that a query is flowing over, so you can see where the flow might have broken between a source and a sink.</description>
+    </item>
+    
     <item>
       <title>I wrote a Python Linting Code Scanning Action</title>
       <link>https://aegilops.github.io/posts/python-linting-code-scanning-action/</link>
