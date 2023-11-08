@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en-gb">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>CodeQL in VSCode - solving a common problem | @aegilops website</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="CodeQL, GitHub&rsquo;s SAST engine, has a great VSCode extension to help you write queries.
+One of the most common problems using it is that the extension can&rsquo;t find the CodeQL libraries.
+Solving this is pretty easy, but sometimes I forget what the problem is (as I did last night), so I&rsquo;m dropping the error message here with the solution.
+The error The error you&rsquo;ll see is something like this (where I&rsquo;ve replaced the real user path with ~ for this example):">
+    <meta name="generator" content="Hugo 0.110.0">
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+    
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="CodeQL in VSCode - solving a common problem" />
+<meta property="og:description" content="CodeQL, GitHub&rsquo;s SAST engine, has a great VSCode extension to help you write queries.
+One of the most common problems using it is that the extension can&rsquo;t find the CodeQL libraries.
+Solving this is pretty easy, but sometimes I forget what the problem is (as I did last night), so I&rsquo;m dropping the error message here with the solution.
+The error The error you&rsquo;ll see is something like this (where I&rsquo;ve replaced the real user path with ~ for this example):" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://aegilops.github.io/posts/codeql-in-vscode-problem-debug-tip/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-11-08T13:55:41+00:00" />
+<meta property="article:modified_time" content="2023-11-08T13:55:41+00:00" />
+<meta itemprop="name" content="CodeQL in VSCode - solving a common problem">
+<meta itemprop="description" content="CodeQL, GitHub&rsquo;s SAST engine, has a great VSCode extension to help you write queries.
+One of the most common problems using it is that the extension can&rsquo;t find the CodeQL libraries.
+Solving this is pretty easy, but sometimes I forget what the problem is (as I did last night), so I&rsquo;m dropping the error message here with the solution.
+The error The error you&rsquo;ll see is something like this (where I&rsquo;ve replaced the real user path with ~ for this example):"><meta itemprop="datePublished" content="2023-11-08T13:55:41+00:00" />
+<meta itemprop="dateModified" content="2023-11-08T13:55:41+00:00" />
+<meta itemprop="wordCount" content="240">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="CodeQL in VSCode - solving a common problem"/>
+<meta name="twitter:description" content="CodeQL, GitHub&rsquo;s SAST engine, has a great VSCode extension to help you write queries.
+One of the most common problems using it is that the extension can&rsquo;t find the CodeQL libraries.
+Solving this is pretty easy, but sometimes I forget what the problem is (as I did last night), so I&rsquo;m dropping the error message here with the solution.
+The error The error you&rsquo;ll see is something like this (where I&rsquo;ve replaced the real user path with ~ for this example):"/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        @aegilops website
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">CodeQL in VSCode - solving a common problem</h1>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2023-11-08T13:55:41Z">November 8, 2023</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><p><a href="https://codeql.github.com/">CodeQL, GitHub&rsquo;s SAST engine</a>, has a great <a href="https://codeql.github.com/docs/codeql-for-visual-studio-code/setting-up-codeql-in-visual-studio-code/">VSCode extension to help you write queries</a>.</p>
+<p>One of the most common problems using it is that the <strong>extension can&rsquo;t find the CodeQL libraries</strong>.</p>
+<p>Solving this is pretty easy, but sometimes I forget what the problem is (as I did last night), so I&rsquo;m dropping the error message here with the solution.</p>
+<h2 id="the-error">The error</h2>
+<p>The error you&rsquo;ll see is something like this (where I&rsquo;ve replaced the real user path with <code>~</code> for this example):</p>
+<pre tabindex="0"><code class="language-log" data-lang="log"> Resolving qlpack information using CodeQL CLI: resolve qlpacks -v --log-to-stderr --format json --additional-packs ~/...
+CLI command succeeded.
+[2023-11-07 16:52:05] [INCOMPATIBILITY] legacy-upgrades: not 0.0.0 {root: legacy-upgrades@0.0.0}
+[2023-11-07 16:52:05] [DERIVATION] legacy-upgrades: 0.0.0 {legacy-upgrades: not 0.0.0 {root: legacy-upgrades@0.0.0}}
+[2023-11-07 16:52:05] [DECISION 1] legacy-upgrades: 0.0.0
+
+Could not find qlpack file for dbscheme semmlecode.javascript.dbscheme (codeQL.viewAstContextEditor)
+Error: Could not find qlpack file for dbscheme semmlecode.javascript.dbscheme
+    at findDbschemePack (~/.vscode/extensions/github.vscode-codeql-1.9.4/out/extension.js:138862:9)
+    at getQlPackForDbscheme (~/.vscode/extensions/github.vscode-codeql-1.9.4/out/extension.js:138895:24)
+    at qlpackOfDatabase (~/.vscode/extensions/github.vscode-codeql-1.9.4/out/extension.js:138931:10)
+    at TemplatePrintAstProvider.getAst (~/.vscode/extensions/github.vscode-codeql-1.9.4/out/extension.js:144479:21)
+    at CachedOperation.get (~/.vscode/extensions/github.vscode-codeql-1.9.4/out/extension.js:144307:22)
+    at TemplatePrintAstProvider.provideAst (~/.vscode/extensions/github.vscode-codeql-1.9.4/out/extension.js:144453:52)
+    at withProgress.cancellable (~/.vscode/extensions/github.vscode-codeql-1.9.4/out/extension.js:160274:19)
+</code></pre><h2 id="the-solution">The solution</h2>
+<p>Your VSCode workspace needs to have the CodeQL libraries in it, so that the extension can find them.</p>
+<p>They are found on GitHub at <a href="https://github.com/github/codeql"><code>github/codeql</code></a>. If you clone that, and then add that folder to your VSCode workspace you should be golden; you can check that the checkout is for the same version as your CodeQL CLI binary, to ensure compatibility.</p>
+<p>You can also use the <a href="https://github.com/github/vscode-codeql-starter">VSCode CodeQL starter workspace</a>, which already has the libraries in it.</p>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://aegilops.github.io/" >
+    &copy;  @aegilops website 2023 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

@@ -3,12 +3,15 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://aegilops.github.io/</loc>
-    <lastmod>2023-11-06T14:20:00+00:00</lastmod>
+    <lastmod>2023-11-08T13:55:41+00:00</lastmod>
   </url><url>
-    <loc>https://aegilops.github.io/posts/partial-flow-in-codeql-with-configsig/</loc>
-    <lastmod>2023-11-06T14:20:00+00:00</lastmod>
+    <loc>https://aegilops.github.io/posts/codeql-in-vscode-problem-debug-tip/</loc>
+    <lastmod>2023-11-08T13:55:41+00:00</lastmod>
   </url><url>
     <loc>https://aegilops.github.io/posts/</loc>
+    <lastmod>2023-11-08T13:55:41+00:00</lastmod>
+  </url><url>
+    <loc>https://aegilops.github.io/posts/partial-flow-in-codeql-with-configsig/</loc>
     <lastmod>2023-11-06T14:20:00+00:00</lastmod>
   </url><url>
     <loc>https://aegilops.github.io/posts/python-linting-code-scanning-action/</loc>
