@@ -1,0 +1,252 @@
+<html><head><title>GitHub Secret Scanning Vendor Patterns</title>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.css" />
+<script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.js"></script>
+</head><body>
+<h1>GitHub Secret Scanning Vendor Patterns</h1>
+<p>Data accurate as of 2023-12-04<br>
+Data sourced from the official <a href='https://docs.github.com/en/enterprise-cloud@latest/code-security/secret-scanning/secret-scanning-patterns#high-confidence-patterns'>GitHub provider patterns list</a></p>
+<table>
+<thead><tr><th>Provider</th><th>Token</th><th>Partner</th><th>User</th><th>Push protection</th><th>Validity check</th></tr></thead>
+<tr><td>Adafruit IO</td><td>adafruit_io_key</td><td>✔</td><td>✔</td><td>✔</td><td>✔</td></tr>
+<tr><td>Adobe</td><td>adobe_client_secret</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>Adobe</td><td>adobe_device_token</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>Adobe</td><td>adobe_pac_token</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>Adobe</td><td>adobe_refresh_token</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>Adobe</td><td>adobe_service_token</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>Adobe</td><td>adobe_short_lived_access_token</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>Aiven</td><td>aiven_auth_token</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>Aiven</td><td>aiven_service_password</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>Alibaba Cloud</td><td>alibaba_cloud_access_key_id alibaba_cloud_access_key_secret</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>Login with Amazon</td><td>amazon_oauth_client_id amazon_oauth_client_secret</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>Amazon Web Services (AWS)</td><td>aws_access_key_id aws_secret_access_key</td><td>✔</td><td>✔</td><td>✔</td><td>✔</td></tr>
+<tr><td>Amazon Web Services (AWS)</td><td>aws_session_token aws_temporary_access_key_id aws_secret_access_key</td><td>✘</td><td>✔</td><td>✔</td><td>✔</td></tr>
+<tr><td>Asana</td><td>asana_personal_access_token</td><td>✘</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>Atlassian</td><td>atlassian_api_token</td><td>✔</td><td>✔</td><td>✘</td><td>✘</td></tr>
+<tr><td>Atlassian</td><td>atlassian_jwt</td><td>✔</td><td>✔</td><td>✘</td><td>✘</td></tr>
+<tr><td>Atlassian</td><td>bitbucket_server_personal_access_token</td><td>✘</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>Authress</td><td>authress_service_client_access_key</td><td>✘</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>Azure</td><td>azure_active_directory_application_secret</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>Azure</td><td>azure_batch_key_identifiable</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>Azure</td><td>azure_cache_for_redis_access_key</td><td>✘</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>Azure</td><td>azure_container_registry_key_identifiable</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>Azure</td><td>azure_cosmosdb_key_identifiable</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>Azure</td><td>azure_devops_personal_access_token</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>Azure</td><td>azure_function_key</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>Azure</td><td>azure_ml_web_service_classic_identifiable_key</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>Azure</td><td>azure_sas_token</td><td>✔</td><td>✔</td><td>✘</td><td>✘</td></tr>
+<tr><td>Azure</td><td>azure_search_admin_key</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>Azure</td><td>azure_search_query_key</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>Azure</td><td>azure_management_certificate</td><td>✔</td><td>✔</td><td>✘</td><td>✘</td></tr>
+<tr><td>Azure</td><td>azure_sql_connection_string</td><td>✔</td><td>✔</td><td>✘</td><td>✘</td></tr>
+<tr><td>Azure</td><td>azure_sql_password</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>Azure</td><td>azure_storage_account_key</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>Baidu</td><td>baiducloud_api_accesskey</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>Beamer</td><td>beamer_api_key</td><td>✘</td><td>✔</td><td>✘</td><td>✘</td></tr>
+<tr><td>Canadian Digital Service</td><td>cds_canada_notify_api_key</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>Checkout.com</td><td>checkout_production_secret_key</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>Checkout.com</td><td>checkout_test_secret_key</td><td>✔</td><td>✔</td><td>✘</td><td>✘</td></tr>
+<tr><td>Chief Tools</td><td>chief_tools_token</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>Clojars</td><td>clojars_deploy_token</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>CloudBees CodeShip</td><td>codeship_credential</td><td>✔</td><td>✔</td><td>✘</td><td>✘</td></tr>
+<tr><td>Contentful</td><td>contentful_personal_access_token</td><td>✘</td><td>✔</td><td>✘</td><td>✘</td></tr>
+<tr><td>Contributed Systems</td><td>CONTRIBUTED_SYSTEMS_CREDENTIALS</td><td>✔</td><td>✘</td><td>✘</td><td>✘</td></tr>
+<tr><td>crates.io (Rust Foundation)</td><td>cratesio_api_token</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>Databricks</td><td>databricks_access_token</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>Datadog</td><td>DATADOG_API_KEY</td><td>✔</td><td>✘</td><td>✘</td><td>✘</td></tr>
+<tr><td>Defined</td><td>defined_networking_nebula_api_key</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>DevCycle</td><td>devcycle_client_api_key</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>DevCycle</td><td>devcycle_mobile_api_key</td><td>✘</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>DevCycle</td><td>devcycle_server_api_key</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>DigitalOcean</td><td>digitalocean_oauth_token</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>DigitalOcean</td><td>digitalocean_personal_access_token</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>DigitalOcean</td><td>digitalocean_refresh_token</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>DigitalOcean</td><td>digitalocean_system_token</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>Discord</td><td>discord_api_token_v2</td><td>✘</td><td>✔</td><td>✔</td><td>✔</td></tr>
+<tr><td>Discord</td><td>discord_bot_token</td><td>✔</td><td>✔</td><td>✔</td><td>✔</td></tr>
+<tr><td>Doppler</td><td>doppler_audit_token</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>Doppler</td><td>doppler_cli_token</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>Doppler</td><td>doppler_personal_token</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>Doppler</td><td>doppler_scim_token</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>Doppler</td><td>doppler_service_token</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>Doppler</td><td>doppler_service_account_token</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>Dropbox</td><td>dropbox_access_token</td><td>✔</td><td>✔</td><td>✘</td><td>✘</td></tr>
+<tr><td>Dropbox</td><td>dropbox_short_lived_access_token</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>Duffel</td><td>duffel_live_access_token</td><td>✘</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>Duffel</td><td>duffel_test_access_token</td><td>✘</td><td>✔</td><td>✘</td><td>✘</td></tr>
+<tr><td>Dynatrace</td><td>dynatrace_access_token</td><td>✔</td><td>✔</td><td>✘</td><td>✘</td></tr>
+<tr><td>Dynatrace</td><td>dynatrace_internal_token</td><td>✔</td><td>✔</td><td>✘</td><td>✘</td></tr>
+<tr><td>EasyPost</td><td>easypost_production_api_key</td><td>✘</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>EasyPost</td><td>easypost_test_api_key</td><td>✘</td><td>✔</td><td>✘</td><td>✘</td></tr>
+<tr><td>eBay</td><td>ebay_production_client_id ebay_production_client_secret</td><td>✘</td><td>✔</td><td>✘</td><td>✘</td></tr>
+<tr><td>eBay</td><td>ebay_sandbox_client_id ebay_sandbox_client_secret</td><td>✘</td><td>✔</td><td>✘</td><td>✘</td></tr>
+<tr><td>Fastly</td><td>fastly_api_token</td><td>✘</td><td>✔</td><td>✘</td><td>✘</td></tr>
+<tr><td>Figma</td><td>figma_pat</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>Finicity</td><td>finicity_app_key</td><td>✔</td><td>✔</td><td>✘</td><td>✘</td></tr>
+<tr><td>Flutterwave</td><td>flutterwave_live_api_secret_key</td><td>✘</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>Flutterwave</td><td>flutterwave_test_api_secret_key</td><td>✘</td><td>✔</td><td>✘</td><td>✘</td></tr>
+<tr><td>Frame.io</td><td>frameio_developer_token</td><td>✔</td><td>✔</td><td>✘</td><td>✘</td></tr>
+<tr><td>Frame.io</td><td>frameio_jwt</td><td>✔</td><td>✔</td><td>✘</td><td>✘</td></tr>
+<tr><td>FullStory</td><td>fullstory_api_key</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>GitHub</td><td>github_app_installation_access_token</td><td>✔</td><td>✔</td><td>✔</td><td>✔</td></tr>
+<tr><td>GitHub</td><td>github_oauth_access_token</td><td>✔</td><td>✔</td><td>✔</td><td>✔</td></tr>
+<tr><td>GitHub</td><td>github_personal_access_token</td><td>✔</td><td>✔</td><td>✔</td><td>✔</td></tr>
+<tr><td>GitHub</td><td>github_refresh_token</td><td>✔</td><td>✔</td><td>✔</td><td>✔</td></tr>
+<tr><td>GitHub</td><td>github_ssh_private_key</td><td>✔</td><td>✔</td><td>✔</td><td>✔</td></tr>
+<tr><td>GitLab</td><td>gitlab_access_token</td><td>✘</td><td>✔</td><td>✘</td><td>✘</td></tr>
+<tr><td>GoCardless</td><td>gocardless_live_access_token</td><td>✔</td><td>✔</td><td>✘</td><td>✘</td></tr>
+<tr><td>GoCardless</td><td>gocardless_sandbox_access_token</td><td>✔</td><td>✔</td><td>✘</td><td>✘</td></tr>
+<tr><td>Google</td><td>firebase_cloud_messaging_server_key</td><td>✘</td><td>✔</td><td>✘</td><td>✘</td></tr>
+<tr><td>Google</td><td>google_cloud_storage_service_account_access_key_id google_cloud_storage_access_key_secret</td><td>✘</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>Google</td><td>google_cloud_storage_user_access_key_id google_cloud_storage_access_key_secret</td><td>✘</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>Google</td><td>google_oauth_access_token</td><td>✘</td><td>✔</td><td>✘</td><td>✔</td></tr>
+<tr><td>Google</td><td>google_oauth_client_id google_oauth_client_secret</td><td>✘</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>Google</td><td>google_oauth_refresh_token</td><td>✘</td><td>✔</td><td>✘</td><td>✘</td></tr>
+<tr><td>Google Cloud</td><td>google_api_key</td><td>✔</td><td>✔</td><td>✘</td><td>✔</td></tr>
+<tr><td>Google Cloud</td><td>google_cloud_private_key_id</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>Grafana</td><td>grafana_cloud_api_key</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>Grafana</td><td>grafana_cloud_api_token</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>Grafana</td><td>grafana_project_api_key</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>Grafana</td><td>grafana_project_service_account_token</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>HashiCorp</td><td>hashicorp_vault_batch_token</td><td>✘</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>HashiCorp</td><td>hashicorp_vault_root_service_token</td><td>✘</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>HashiCorp</td><td>hashicorp_vault_service_token</td><td>✘</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>Hashicorp Terraform</td><td>terraform_api_token</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>Highnote</td><td>highnote_rk_live_key</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>Highnote</td><td>highnote_rk_test_key</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>Highnote</td><td>highnote_sk_live_key</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>Highnote</td><td>highnote_sk_test_key</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>Hop</td><td>hop_bearer</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>Hop</td><td>hop_pat</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>Hop</td><td>hop_ptk</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>Hubspot</td><td>hubspot_api_key</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>Hubspot</td><td>hubspot_api_personal_access_key</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>Intercom</td><td>intercom_access_token</td><td>✘</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>Ionic</td><td>ionic_personal_access_token</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>Ionic</td><td>ionic_refresh_token</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>JD Cloud</td><td>jd_cloud_access_key</td><td>✔</td><td>✔</td><td>✘</td><td>✘</td></tr>
+<tr><td>JFrog</td><td>jfrog_platform_access_token</td><td>✘</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>JFrog</td><td>jfrog_platform_api_key</td><td>✘</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>JFrog</td><td>jfrog_platform_reference_token</td><td>✘</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>Linear</td><td>linear_api_key</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>Linear</td><td>linear_oauth_access_token</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>Lob</td><td>lob_live_api_key</td><td>✘</td><td>✔</td><td>✘</td><td>✘</td></tr>
+<tr><td>Lob</td><td>lob_test_api_key</td><td>✘</td><td>✔</td><td>✘</td><td>✘</td></tr>
+<tr><td>LocalStack</td><td>localstack_api_key</td><td>✔</td><td>✔</td><td>✘</td><td>✘</td></tr>
+<tr><td>LogicMonitor</td><td>logicmonitor_bearer_token</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>LogicMonitor</td><td>logicmonitor_lmv1_access_key</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>Mailchimp</td><td>mailchimp_api_key</td><td>✔</td><td>✔</td><td>✘</td><td>✘</td></tr>
+<tr><td>Mailchimp</td><td>MANDRILL_API</td><td>✔</td><td>✘</td><td>✘</td><td>✘</td></tr>
+<tr><td>Mailgun</td><td>mailgun_api_key</td><td>✔</td><td>✔</td><td>✘</td><td>✘</td></tr>
+<tr><td>Mapbox</td><td>mapbox_secret_access_token</td><td>✘</td><td>✔</td><td>✘</td><td>✘</td></tr>
+<tr><td>Maxmind</td><td>maxmind_license_key</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>Mercury</td><td>mercury_non_production_api_token</td><td>✘</td><td>✔</td><td>✘</td><td>✘</td></tr>
+<tr><td>Mercury</td><td>mercury_production_api_token</td><td>✘</td><td>✔</td><td>✘</td><td>✘</td></tr>
+<tr><td>MessageBird</td><td>messagebird_api_key</td><td>✔</td><td>✔</td><td>✘</td><td>✘</td></tr>
+<tr><td>Meta</td><td>facebook_access_token</td><td>✔</td><td>✔</td><td>✘</td><td>✘</td></tr>
+<tr><td>Midtrans</td><td>midtrans_production_server_key</td><td>✘</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>Midtrans</td><td>midtrans_sandbox_server_key</td><td>✘</td><td>✔</td><td>✘</td><td>✘</td></tr>
+<tr><td>New Relic</td><td>new_relic_insights_query_key</td><td>✘</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>New Relic</td><td>new_relic_license_key</td><td>✘</td><td>✔</td><td>✘</td><td>✘</td></tr>
+<tr><td>New Relic</td><td>new_relic_personal_api_key</td><td>✘</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>New Relic</td><td>new_relic_rest_api_key</td><td>✘</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>Notion</td><td>notion_integration_token</td><td>✘</td><td>✔</td><td>✘</td><td>✘</td></tr>
+<tr><td>Notion</td><td>notion_oauth_client_secret</td><td>✘</td><td>✔</td><td>✘</td><td>✘</td></tr>
+<tr><td>npm</td><td>npm_access_token</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>NuGet</td><td>nuget_api_key</td><td>✔</td><td>✔</td><td>✔</td><td>✔</td></tr>
+<tr><td>Octopus Deploy</td><td>octopus_deploy_api_key</td><td>✔</td><td>✔</td><td>✘</td><td>✘</td></tr>
+<tr><td>Oculus</td><td>oculus_very_tiny_encrypted_session</td><td>✘</td><td>✔</td><td>✘</td><td>✘</td></tr>
+<tr><td>OneChronos</td><td>onechronos_api_key</td><td>✘</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>OneChronos</td><td>onechronos_eb_api_key</td><td>✘</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>OneChronos</td><td>onechronos_eb_encryption_key</td><td>✘</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>OneChronos</td><td>onechronos_oauth_token</td><td>✘</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>OneChronos</td><td>onechronos_refresh_token</td><td>✘</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>Onfido</td><td>onfido_live_api_token</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>Onfido</td><td>onfido_sandbox_api_token</td><td>✔</td><td>✔</td><td>✘</td><td>✘</td></tr>
+<tr><td>OpenAI</td><td>openai_api_key</td><td>✔</td><td>✔</td><td>✔</td><td>✔</td></tr>
+<tr><td>OpenAI</td><td>openai_api_key_v2</td><td>✔</td><td>✔</td><td>✔</td><td>✔</td></tr>
+<tr><td>Palantir</td><td>palantir_jwt</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>Persona</td><td>persona_production_api_key</td><td>✘</td><td>✔</td><td>✘</td><td>✘</td></tr>
+<tr><td>Persona</td><td>persona_sandbox_api_key</td><td>✘</td><td>✔</td><td>✘</td><td>✘</td></tr>
+<tr><td>Pinterest</td><td>pinterest_access_token</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>Pinterest</td><td>pinterest_refresh_token</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>PlanetScale</td><td>planetscale_database_password</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>PlanetScale</td><td>planetscale_oauth_token</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>PlanetScale</td><td>planetscale_service_token</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>Plivo</td><td>plivo_auth_id plivo_auth_token</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>Postman</td><td>postman_api_key</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>Postman</td><td>postman_collection_key</td><td>✘</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>Prefect</td><td>prefect_server_api_key</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>Prefect</td><td>prefect_user_api_key</td><td>✘</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>Prefect</td><td>PREFECT_USER_API_TOKEN</td><td>✔</td><td>✘</td><td>✘</td><td>✘</td></tr>
+<tr><td>Proctorio</td><td>proctorio_consumer_key</td><td>✔</td><td>✔</td><td>✘</td><td>✘</td></tr>
+<tr><td>Proctorio</td><td>proctorio_linkage_key</td><td>✔</td><td>✔</td><td>✘</td><td>✘</td></tr>
+<tr><td>Proctorio</td><td>proctorio_registration_key</td><td>✔</td><td>✔</td><td>✘</td><td>✘</td></tr>
+<tr><td>Proctorio</td><td>proctorio_secret_key</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>Pulumi</td><td>pulumi_access_token</td><td>✔</td><td>✔</td><td>✘</td><td>✘</td></tr>
+<tr><td>PyPI</td><td>pypi_api_token</td><td>✔</td><td>✔</td><td>✘</td><td>✘</td></tr>
+<tr><td>ReadMe</td><td>readmeio_api_access_token</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>redirect.pizza</td><td>redirect_pizza_api_token</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>Rootly</td><td>rootly_api_key</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>RubyGems</td><td>rubygems_api_key</td><td>✔</td><td>✔</td><td>✘</td><td>✘</td></tr>
+<tr><td>Samsara</td><td>samsara_api_token</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>Samsara</td><td>samsara_oauth_access_token</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>Segment</td><td>segment_public_api_token</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>SendGrid</td><td>sendgrid_api_key</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>Sendinblue</td><td>sendinblue_api_key</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>Sendinblue</td><td>sendinblue_smtp_key</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>Shippo</td><td>shippo_live_api_token</td><td>✘</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>Shippo</td><td>shippo_test_api_token</td><td>✘</td><td>✔</td><td>✘</td><td>✘</td></tr>
+<tr><td>Shopify</td><td>shopify_access_token</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>Shopify</td><td>shopify_app_client_credentials</td><td>✘</td><td>✔</td><td>✘</td><td>✘</td></tr>
+<tr><td>Shopify</td><td>shopify_app_client_secret</td><td>✘</td><td>✔</td><td>✘</td><td>✘</td></tr>
+<tr><td>Shopify</td><td>shopify_app_shared_secret</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>Shopify</td><td>shopify_custom_app_access_token</td><td>✔</td><td>✔</td><td>✘</td><td>✘</td></tr>
+<tr><td>Shopify</td><td>shopify_marketplace_token</td><td>✘</td><td>✔</td><td>✘</td><td>✘</td></tr>
+<tr><td>Shopify</td><td>shopify_merchant_token</td><td>✘</td><td>✔</td><td>✘</td><td>✘</td></tr>
+<tr><td>Shopify</td><td>shopify_partner_api_token</td><td>✘</td><td>✔</td><td>✘</td><td>✘</td></tr>
+<tr><td>Shopify</td><td>shopify_private_app_password</td><td>✔</td><td>✔</td><td>✘</td><td>✘</td></tr>
+<tr><td>Slack</td><td>slack_api_token</td><td>✔</td><td>✔</td><td>✔</td><td>✔</td></tr>
+<tr><td>Slack</td><td>slack_incoming_webhook_url</td><td>✔</td><td>✔</td><td>✘</td><td>✘</td></tr>
+<tr><td>Slack</td><td>slack_workflow_webhook_url</td><td>✔</td><td>✔</td><td>✘</td><td>✘</td></tr>
+<tr><td>Square</td><td>square_access_token</td><td>✘</td><td>✔</td><td>✘</td><td>✘</td></tr>
+<tr><td>Square</td><td>square_production_application_secret</td><td>✘</td><td>✔</td><td>✘</td><td>✘</td></tr>
+<tr><td>Square</td><td>square_sandbox_application_secret</td><td>✘</td><td>✔</td><td>✘</td><td>✘</td></tr>
+<tr><td>SSLMate</td><td>sslmate_api_key</td><td>✔</td><td>✔</td><td>✘</td><td>✘</td></tr>
+<tr><td>SSLMate</td><td>sslmate_cluster_secret</td><td>✔</td><td>✔</td><td>✘</td><td>✘</td></tr>
+<tr><td>Stripe</td><td>stripe_live_restricted_key</td><td>✔</td><td>✔</td><td>✘</td><td>✘</td></tr>
+<tr><td>Stripe</td><td>stripe_api_key</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>Stripe</td><td>stripe_legacy_api_key</td><td>✔</td><td>✔</td><td>✘</td><td>✘</td></tr>
+<tr><td>Stripe</td><td>stripe_test_restricted_key</td><td>✔</td><td>✔</td><td>✘</td><td>✘</td></tr>
+<tr><td>Stripe</td><td>stripe_test_secret_key</td><td>✔</td><td>✔</td><td>✘</td><td>✘</td></tr>
+<tr><td>Stripe</td><td>stripe_webhook_signing_secret</td><td>✘</td><td>✔</td><td>✘</td><td>✘</td></tr>
+<tr><td>Supabase</td><td>supabase_service_key</td><td>✔</td><td>✔</td><td>✘</td><td>✘</td></tr>
+<tr><td>Tableau</td><td>tableau_personal_access_token</td><td>✘</td><td>✔</td><td>✘</td><td>✘</td></tr>
+<tr><td>Telegram</td><td>telegram_bot_token</td><td>✘</td><td>✔</td><td>✘</td><td>✘</td></tr>
+<tr><td>Telnyx</td><td>telnyx_api_v2_key</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>Tencent Cloud</td><td>tencent_cloud_secret_id</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>Tencent WeChat</td><td>tencent_wechat_api_app_id</td><td>✔</td><td>✔</td><td>✘</td><td>✘</td></tr>
+<tr><td>Twilio</td><td>twilio_access_token</td><td>✘</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>Twilio</td><td>twilio_account_sid</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>Twilio</td><td>twilio_api_key</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>Typeform</td><td>typeform_personal_access_token</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>Uniwise</td><td>wiseflow_api_key</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>WakaTime</td><td>wakatime_pp_secret</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>WakaTime</td><td>wakatime_oauth_access_token</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>WakaTime</td><td>wakatime_oauth_refresh_token</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>Workato</td><td>workato_developer_api_token</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>WorkOS</td><td>workos_production_api_key</td><td>✘</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>WorkOS</td><td>workos_staging_api_key</td><td>✘</td><td>✔</td><td>✘</td><td>✘</td></tr>
+<tr><td>Yandex</td><td>yandex_iam_access_secret</td><td>✔</td><td>✔</td><td>✘</td><td>✘</td></tr>
+<tr><td>Yandex</td><td>yandex_cloud_api_key</td><td>✔</td><td>✔</td><td>✘</td><td>✘</td></tr>
+<tr><td>Yandex</td><td>yandex_cloud_iam_cookie</td><td>✔</td><td>✔</td><td>✘</td><td>✘</td></tr>
+<tr><td>Yandex</td><td>yandex_cloud_iam_token</td><td>✔</td><td>✔</td><td>✘</td><td>✘</td></tr>
+<tr><td>Yandex</td><td>yandex_cloud_smartcaptcha_server_key</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>Yandex</td><td>yandex_dictionary_api_key</td><td>✔</td><td>✔</td><td>✘</td><td>✘</td></tr>
+<tr><td>Yandex</td><td>YANDEX_PASSPORT_OAUTH_TOKEN</td><td>✔</td><td>✘</td><td>✘</td><td>✘</td></tr>
+<tr><td>Yandex</td><td>yandex_predictor_api_key</td><td>✔</td><td>✔</td><td>✘</td><td>✘</td></tr>
+<tr><td>Yandex</td><td>yandex_translate_api_key</td><td>✔</td><td>✔</td><td>✘</td><td>✘</td></tr>
+<tr><td>Zuplo</td><td>zuplo_consumer_api_key</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+</table>
+<script>$(document).ready( function () { $("table").DataTable({pageLength: 100}); } );</script>
+</body></html>
