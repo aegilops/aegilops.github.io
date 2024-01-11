@@ -21,7 +21,7 @@
 
 
     
-    
+
     
       
 
@@ -33,7 +33,11 @@
       <link href="/posts/index.xml" rel="feed" type="application/rss+xml" title="@aegilops website" />
       
     
+
     
+      <link rel="canonical" href="https://aegilops.github.io/posts/">
+    
+
     <meta property="og:title" content="Posts" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
@@ -103,6 +107,7 @@ One of the most common problems using it is that the extension can&rsquo;t find 
 Solving this is pretty easy, but sometimes I forget what the problem is (as I did last night), so I&rsquo;m dropping the error message here with the solution.
 The error The error you&rsquo;ll see is something like this (where I&rsquo;ve replaced the real user path with ~ for this example):
     </div>
+    <a href="/posts/codeql-in-vscode-problem-debug-tip/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
   </div>
 </div>
 
@@ -118,10 +123,12 @@ The error The error you&rsquo;ll see is something like this (where I&rsquo;ve re
       </a>
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
-      CodeQL is an ever-evolving static code analysis engine, which powers GitHub&rsquo;s SAST.
+      ℹ️ Edited 2024-01-11 to add a note about FlowExploration being deprecated in favour of FlowExplorationFwd and FlowExplorationRev, and to link to the CodeQL docs on partial flow
+CodeQL is an ever-evolving static code analysis engine, which powers GitHub&rsquo;s SAST.
 It&rsquo;s powerful, but it&rsquo;s not perfect, and sometimes you need to debug queries to understand why they&rsquo;re not behaving as you&rsquo;d expect.
 One great tool for that is &ldquo;partial paths&rdquo;, which lets you see the dataflow or taint steps that a query is flowing over, so you can see where the flow might have broken between a source and a sink.
     </div>
+    <a href="/posts/partial-flow-in-codeql-with-configsig/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
   </div>
 </div>
 
@@ -140,6 +147,7 @@ One great tool for that is &ldquo;partial paths&rdquo;, which lets you see the d
       A GitHub Action to lint Python code, for GitHub Code Scanning Recently I ran a training &ldquo;bootcamp&rdquo; for a customer on GitHub Advanced Security, and the topic of code quality came up.
 Pinning down just what we mean by &ldquo;code quality&rdquo; can be a bit tricky: witness the debates over Uncle Bob&rsquo;s work on &ldquo;clean code&rdquo;. It&rsquo;s fair to say that it&rsquo;s often about other factors of the code than the security of the code, which is the main focus of Advanced Security (the clue is in the name).
     </div>
+    <a href="/posts/python-linting-code-scanning-action/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
   </div>
 </div>
 
@@ -160,6 +168,7 @@ For that, our custom patterns for Advanced Security are perfect, and I&rsquo;ve 
 Here&rsquo;s the list:
 .NET Configuration file, e.g. &lt;add key=&quot;password&quot; value=&quot;somesecret&quot; /&gt; .NET machineKey, e.g. &lt;machineKey validationKey=&quot;.
     </div>
+    <a href="/posts/new-github-secret-scanning-custom-patterns/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
   </div>
 </div>
 
@@ -179,6 +188,7 @@ Here&rsquo;s the list:
 As someone who&rsquo;s been jokingly called &ldquo;The King of Regex&rdquo; 👑 before, I&rsquo;ve got a little bit to say about them.
 They&rsquo;re used in many places, including GitHub&rsquo;s Secret Scanning, where as part of Advanced Security they give you the ability to match your own patterns to search for secrets or personal data (or anything you like!
     </div>
+    <a href="/posts/regex-for-secret-scanning/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
   </div>
 </div>
 
@@ -198,6 +208,7 @@ They&rsquo;re used in many places, including GitHub&rsquo;s Secret Scanning, whe
 I&rsquo;ve got a background in computer security, having done a couple of decades of network security, AppSec, vulnerability research and research &amp; development.
 I started work at GitHub at the end of May 2022.
     </div>
+    <a href="/posts/intro/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
   </div>
 </div>
 
@@ -209,7 +220,7 @@ I started work at GitHub at the end of May 2022.
     <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
   <div class="flex justify-between">
   <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://aegilops.github.io/" >
-    &copy;  @aegilops website 2023 
+    &copy;  @aegilops website 2024 
   </a>
     <div>
 <div class="ananke-socials">

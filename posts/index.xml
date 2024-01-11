@@ -25,7 +25,8 @@ The error The error you&amp;rsquo;ll see is something like this (where I&amp;rsq
       <pubDate>Mon, 06 Nov 2023 14:20:00 +0000</pubDate>
       
       <guid>https://aegilops.github.io/posts/partial-flow-in-codeql-with-configsig/</guid>
-      <description>CodeQL is an ever-evolving static code analysis engine, which powers GitHub&amp;rsquo;s SAST.
+      <description>ℹ️ Edited 2024-01-11 to add a note about FlowExploration being deprecated in favour of FlowExplorationFwd and FlowExplorationRev, and to link to the CodeQL docs on partial flow
+CodeQL is an ever-evolving static code analysis engine, which powers GitHub&amp;rsquo;s SAST.
 It&amp;rsquo;s powerful, but it&amp;rsquo;s not perfect, and sometimes you need to debug queries to understand why they&amp;rsquo;re not behaving as you&amp;rsquo;d expect.
 One great tool for that is &amp;ldquo;partial paths&amp;rdquo;, which lets you see the dataflow or taint steps that a query is flowing over, so you can see where the flow might have broken between a source and a sink.</description>
     </item>
