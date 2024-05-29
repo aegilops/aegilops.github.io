@@ -4,8 +4,8 @@
 <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.js"></script>
 </head><body>
 <h1>GitHub Secret Scanning Vendor Patterns</h1>
-<p>Data accurate as of 2024-01-29<br>
-Data sourced from the official <a href='https://docs.github.com/en/enterprise-cloud@latest/code-security/secret-scanning/secret-scanning-patterns#high-confidence-patterns'>GitHub provider patterns list</a></p>
+<p>Data accurate as of 2024-05-29<br>
+Taken from the official <a href='https://docs.github.com/en/enterprise-cloud@latest/code-security/secret-scanning/secret-scanning-patterns#high-confidence-patterns'>GitHub provider patterns list</a> (<a href='https://raw.githubusercontent.com/github/docs/main/data/secret-scanning.yml'>raw data</a>)</p>
 <table>
 <thead><tr><th>Provider</th><th>Secret name</th><th>Short name</th><th>Enterprise Server versions</th><th>Vendor tips</th><th>User alerts</th><th>Push protection</th><th>Validity check on GHEC</th></tr></thead>
 <tr><td>Adafruit IO</td><td>Adafruit IO Key</td><td>adafruit_io_key</td><td>&gt;=3.5</td><td>✔</td><td>✔</td><td>✔</td><td>✔</td></tr>
@@ -21,7 +21,7 @@ Data sourced from the official <a href='https://docs.github.com/en/enterprise-cl
 <tr><td>Login with Amazon</td><td>Login with Amazon OAuth Client ID with Login with Amazon OAuth Client Secret</td><td>amazon_oauth_client_id &lt;/br&gt;amazon_oauth_client_secret</td><td>&gt;=3.5</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
 <tr><td>Amazon Web Services (AWS)</td><td>Amazon AWS Access Key ID with Amazon AWS Secret Access Key</td><td>aws_access_key_id &lt;/br&gt;aws_secret_access_key</td><td>&gt;=3.5</td><td>✔</td><td>✔</td><td>✔</td><td>✔</td></tr>
 <tr><td>Amazon Web Services (AWS)</td><td>Amazon AWS Session Token with Amazon AWS Temporary Access Key ID and Amazon AWS Secret Access Key</td><td>aws_session_token &lt;/br&gt;aws_temporary_access_key_id &lt;/br&gt;aws_secret_access_key</td><td>&gt;=3.5</td><td>✘</td><td>✔</td><td>✔</td><td>✔</td></tr>
-<tr><td>Anthropic</td><td>Anthropic API Key</td><td>anthropic_api_key</td><td>&gt;=3.12</td><td>✘</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>Anthropic</td><td>Anthropic API Key</td><td>anthropic_api_key</td><td>&gt;=3.12</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
 <tr><td>Asana</td><td>Asana Personal Access Token</td><td>asana_personal_access_token</td><td>&gt;=3.5</td><td>✘</td><td>✔</td><td>✔</td><td>✘</td></tr>
 <tr><td>Atlassian</td><td>Atlassian API Token</td><td>atlassian_api_token</td><td>*</td><td>✔</td><td>✔</td><td>✘</td><td>✘</td></tr>
 <tr><td>Atlassian</td><td>Atlassian JSON Web Token</td><td>atlassian_jwt</td><td>*</td><td>✔</td><td>✔</td><td>✘</td><td>✘</td></tr>
@@ -44,11 +44,15 @@ Data sourced from the official <a href='https://docs.github.com/en/enterprise-cl
 <tr><td>Azure</td><td>Azure Storage Account Key</td><td>azure_storage_account_key</td><td>&gt;3.6</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
 <tr><td>Baidu</td><td>Baidu Cloud API Access Key</td><td>baiducloud_api_accesskey</td><td>&gt;=3.11</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
 <tr><td>Beamer</td><td>Beamer API Key</td><td>beamer_api_key</td><td>*</td><td>✘</td><td>✔</td><td>✘</td><td>✘</td></tr>
+<tr><td>Beijing Volcano Engine Technology</td><td>VolcEngine Access Key ID</td><td>volcengine_access_key_id</td><td>&gt;=3.12</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
 <tr><td>Canadian Digital Service</td><td>CDS Canada Notify API Key</td><td>cds_canada_notify_api_key</td><td>&gt;=3.9</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
 <tr><td>Canva</td><td>Canva Connect API Secret</td><td>canva_connect_api_secret</td><td>&gt;=3.12</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>Cashfree</td><td>cashfree_api_key</td><td>Cashfree API Key</td><td>&gt;=3.12</td><td>✘</td><td>✔</td><td>✔</td><td>✘</td></tr>
 <tr><td>Checkout.com</td><td>Checkout.com Production Secret Key</td><td>checkout_production_secret_key</td><td>&gt;=3.5</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
 <tr><td>Checkout.com</td><td>Checkout.com Test Secret Key</td><td>checkout_test_secret_key</td><td>*</td><td>✔</td><td>✔</td><td>✘</td><td>✘</td></tr>
 <tr><td>Chief Tools</td><td>Chief Tools Token</td><td>chief_tools_token</td><td>&gt;3.7</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>CircleCI</td><td>CircleCI Personal Access Token</td><td>circleci-pat</td><td>&gt;=3.12</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>CircleCI</td><td>CircleCI Project Access Token</td><td>circleci-prj</td><td>&gt;=3.12</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
 <tr><td>Clojars</td><td>Clojars Deploy Token</td><td>clojars_deploy_token</td><td>&gt;=3.5</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
 <tr><td>CloudBees CodeShip</td><td>CloudBees CodeShip Credential</td><td>codeship_credential</td><td>*</td><td>✔</td><td>✔</td><td>✘</td><td>✘</td></tr>
 <tr><td>Contentful</td><td>Contentful Personal Access Token</td><td>contentful_personal_access_token</td><td>*</td><td>✘</td><td>✔</td><td>✘</td><td>✘</td></tr>
@@ -66,6 +70,7 @@ Data sourced from the official <a href='https://docs.github.com/en/enterprise-cl
 <tr><td>DigitalOcean</td><td>DigitalOcean System Token</td><td>digitalocean_system_token</td><td>&gt;=3.5</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
 <tr><td>Discord</td><td>Discord API Token V2</td><td>discord_api_token_v2</td><td>&gt;3.7</td><td>✘</td><td>✔</td><td>✔</td><td>✔</td></tr>
 <tr><td>Discord</td><td>Discord Bot Token</td><td>discord_bot_token</td><td>&gt;=3.5</td><td>✔</td><td>✔</td><td>✔</td><td>✔</td></tr>
+<tr><td>Docker</td><td>Docker Personal Access Token</td><td>docker_personal_access_token</td><td>&gt;=3.12</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
 <tr><td>Doppler</td><td>Doppler Audit Token</td><td>doppler_audit_token</td><td>&gt;=3.5</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
 <tr><td>Doppler</td><td>Doppler CLI Token</td><td>doppler_cli_token</td><td>&gt;=3.5</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
 <tr><td>Doppler</td><td>Doppler Personal Token</td><td>doppler_personal_token</td><td>&gt;=3.5</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
@@ -105,7 +110,8 @@ Data sourced from the official <a href='https://docs.github.com/en/enterprise-cl
 <tr><td>Google</td><td>Google OAuth Client ID with Google OAuth Client Secret</td><td>google_oauth_client_id &lt;/br&gt;google_oauth_client_secret</td><td>&gt;=3.5</td><td>✘</td><td>✔</td><td>✔</td><td>✘</td></tr>
 <tr><td>Google</td><td>Google OAuth Refresh Token</td><td>google_oauth_refresh_token</td><td>*</td><td>✘</td><td>✔</td><td>✘</td><td>✘</td></tr>
 <tr><td>Google Cloud</td><td>Google API Key</td><td>google_api_key</td><td>*</td><td>✔</td><td>✔</td><td>✘</td><td>✔</td></tr>
-<tr><td>Google Cloud</td><td>Google Cloud Private Key ID</td><td>google_cloud_private_key_id</td><td>&gt;3.5</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>Google Cloud</td><td>Google Cloud Private Key ID</td><td>google_cloud_private_key_id</td><td>&lt;3.13</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>Google Cloud</td><td>Google Cloud Service Account Credentials</td><td>google_cloud_service_account_credentials</td><td>&gt;=3.13</td><td>✔</td><td>✔</td><td>✔</td><td>✔</td></tr>
 <tr><td>Grafana</td><td>Grafana Cloud API Key</td><td>grafana_cloud_api_key</td><td>&gt;3.7</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
 <tr><td>Grafana</td><td>Grafana Cloud API Token</td><td>grafana_cloud_api_token</td><td>&gt;3.7</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
 <tr><td>Grafana</td><td>Grafana Project API Key</td><td>grafana_project_api_key</td><td>&gt;3.7</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
@@ -130,6 +136,7 @@ Data sourced from the official <a href='https://docs.github.com/en/enterprise-cl
 <tr><td>JFrog</td><td>JFrog Platform Access Token</td><td>jfrog_platform_access_token</td><td>&gt;3.6</td><td>✘</td><td>✔</td><td>✔</td><td>✘</td></tr>
 <tr><td>JFrog</td><td>JFrog Platform API Key</td><td>jfrog_platform_api_key</td><td>&gt;3.6</td><td>✘</td><td>✔</td><td>✔</td><td>✘</td></tr>
 <tr><td>JFrog</td><td>JFrog Platform Reference Token</td><td>jfrog_platform_reference_token</td><td>&gt;3.10</td><td>✘</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>Lightspeed</td><td>Lightspeed X-Series Personal Access Token</td><td>lightspeed-xs-pat</td><td>&gt;=3.12</td><td>✘</td><td>✔</td><td>✘</td><td>✘</td></tr>
 <tr><td>Linear</td><td>Linear API Key</td><td>linear_api_key</td><td>&gt;=3.5</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
 <tr><td>Linear</td><td>Linear OAuth Access Token</td><td>linear_oauth_access_token</td><td>&gt;=3.5</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
 <tr><td>Lob</td><td>Lob Live API Key</td><td>lob_live_api_key</td><td>*</td><td>✘</td><td>✔</td><td>✘</td><td>✘</td></tr>
@@ -137,13 +144,14 @@ Data sourced from the official <a href='https://docs.github.com/en/enterprise-cl
 <tr><td>LocalStack</td><td>LocalStack API Key</td><td>localstack_api_key</td><td>&gt;3.7</td><td>✔</td><td>✔</td><td>✘</td><td>✘</td></tr>
 <tr><td>LogicMonitor</td><td>LogicMonitor Bearer Token</td><td>logicmonitor_bearer_token</td><td>&gt;3.8</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
 <tr><td>LogicMonitor</td><td>LogicMonitor LMV1 Access Key</td><td>logicmonitor_lmv1_access_key</td><td>&gt;3.8</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
-<tr><td>Mailchimp</td><td>Mailchimp API Key</td><td>mailchimp_api_key</td><td>*</td><td>✔</td><td>✔</td><td>✘</td><td>✘</td></tr>
+<tr><td>Mailchimp</td><td>Mailchimp API Key</td><td>mailchimp_api_key</td><td>*</td><td>✔</td><td>✔</td><td>✘</td><td>✔</td></tr>
 <tr><td>Mailchimp</td><td>Mandrill API Key</td><td>MANDRILL_API</td><td>✘</td><td>✔</td><td>✘</td><td>✘</td><td>✘</td></tr>
-<tr><td>Mailgun</td><td>Mailgun API Key</td><td>mailgun_api_key</td><td>*</td><td>✔</td><td>✔</td><td>✘</td><td>✘</td></tr>
+<tr><td>Mailgun</td><td>Mailgun API Key</td><td>mailgun_api_key</td><td>*</td><td>✔</td><td>✔</td><td>✘</td><td>✔</td></tr>
 <tr><td>Mapbox</td><td>Mapbox Secret Access Token</td><td>mapbox_secret_access_token</td><td>*</td><td>✘</td><td>✔</td><td>✘</td><td>✘</td></tr>
 <tr><td>Maxmind</td><td>Maxmind License Key</td><td>maxmind_license_key</td><td>&gt;=3.11</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
 <tr><td>Mercury</td><td>Mercury Non-Production API Token</td><td>mercury_non_production_api_token</td><td>&gt;=3.10</td><td>✘</td><td>✔</td><td>✘</td><td>✘</td></tr>
 <tr><td>Mercury</td><td>Mercury Production API Token</td><td>mercury_production_api_token</td><td>&gt;=3.10</td><td>✘</td><td>✔</td><td>✘</td><td>✘</td></tr>
+<tr><td>Mergify</td><td>Mergify Application Key</td><td>mergify_application_key</td><td>&gt;=3.12</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
 <tr><td>MessageBird</td><td>MessageBird API Key</td><td>messagebird_api_key</td><td>*</td><td>✔</td><td>✔</td><td>✘</td><td>✘</td></tr>
 <tr><td>Meta</td><td>Facebook Access Token</td><td>facebook_access_token</td><td>*</td><td>✔</td><td>✔</td><td>✘</td><td>✘</td></tr>
 <tr><td>Midtrans</td><td>Midtrans Production Server Key</td><td>midtrans_production_server_key</td><td>&gt;=3.5</td><td>✘</td><td>✔</td><td>✔</td><td>✘</td></tr>
@@ -194,7 +202,7 @@ Data sourced from the official <a href='https://docs.github.com/en/enterprise-cl
 <tr><td>Samsara</td><td>Samsara API Token</td><td>samsara_api_token</td><td>&gt;=3.5</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
 <tr><td>Samsara</td><td>Samsara OAuth Access Token</td><td>samsara_oauth_access_token</td><td>&gt;=3.5</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
 <tr><td>Segment</td><td>Segment Public API Token</td><td>segment_public_api_token</td><td>&gt;3.9</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
-<tr><td>SendGrid</td><td>SendGrid API Key</td><td>sendgrid_api_key</td><td>&gt;=3.5</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>SendGrid</td><td>SendGrid API Key</td><td>sendgrid_api_key</td><td>&gt;=3.5</td><td>✔</td><td>✔</td><td>✔</td><td>✔</td></tr>
 <tr><td>Sendinblue</td><td>Sendinblue API Key</td><td>sendinblue_api_key</td><td>&gt;=3.5</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
 <tr><td>Sendinblue</td><td>Sendinblue SMTP Key</td><td>sendinblue_smtp_key</td><td>&gt;=3.5</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
 <tr><td>Shippo</td><td>Shippo Live API Token</td><td>shippo_live_api_token</td><td>&gt;=3.5</td><td>✘</td><td>✔</td><td>✔</td><td>✘</td></tr>
@@ -208,8 +216,9 @@ Data sourced from the official <a href='https://docs.github.com/en/enterprise-cl
 <tr><td>Shopify</td><td>Shopify Merchant Token</td><td>shopify_merchant_token</td><td>&gt;3.4</td><td>✘</td><td>✔</td><td>✘</td><td>✘</td></tr>
 <tr><td>Shopify</td><td>Shopify Partner API Token</td><td>shopify_partner_api_token</td><td>&gt;3.4</td><td>✘</td><td>✔</td><td>✘</td><td>✘</td></tr>
 <tr><td>Shopify</td><td>Shopify Private App Password</td><td>shopify_private_app_password</td><td>*</td><td>✔</td><td>✔</td><td>✘</td><td>✘</td></tr>
+<tr><td>Siemens</td><td>Siemens Code Access Token</td><td>code_siemens_com_token</td><td>&gt;=3.12</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
 <tr><td>Slack</td><td>Slack API Token</td><td>slack_api_token</td><td>&gt;=3.5</td><td>✔</td><td>✔</td><td>✔</td><td>✔</td></tr>
-<tr><td>Slack</td><td>Slack Incoming Webhook URL</td><td>slack_incoming_webhook_url</td><td>*</td><td>✔</td><td>✔</td><td>✘</td><td>✘</td></tr>
+<tr><td>Slack</td><td>Slack Incoming Webhook URL</td><td>slack_incoming_webhook_url</td><td>*</td><td>✔</td><td>✔</td><td>✘</td><td>✔</td></tr>
 <tr><td>Slack</td><td>Slack Workflow Webhook URL</td><td>slack_workflow_webhook_url</td><td>*</td><td>✔</td><td>✔</td><td>✘</td><td>✘</td></tr>
 <tr><td>Square</td><td>Square Access Token</td><td>square_access_token</td><td>*</td><td>✘</td><td>✔</td><td>✘</td><td>✘</td></tr>
 <tr><td>Square</td><td>Square Production Application Secret</td><td>square_production_application_secret</td><td>*</td><td>✘</td><td>✔</td><td>✘</td><td>✘</td></tr>
@@ -237,8 +246,8 @@ Data sourced from the official <a href='https://docs.github.com/en/enterprise-cl
 <tr><td>WakaTime</td><td>WakaTime OAuth Access Token</td><td>wakatime_oauth_access_token</td><td>&gt;3.9</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
 <tr><td>WakaTime</td><td>WakaTime OAuth Refresh Token</td><td>wakatime_oauth_refresh_token</td><td>&gt;3.9</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
 <tr><td>Workato</td><td>Workato Developer API Token</td><td>workato_developer_api_token</td><td>&gt;3.11</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
-<tr><td>WorkOS</td><td>WorkOS Production API Key</td><td>workos_production_api_key</td><td>&gt;=3.5</td><td>✘</td><td>✔</td><td>✔</td><td>✘</td></tr>
-<tr><td>WorkOS</td><td>WorkOS Staging API Key</td><td>workos_staging_api_key</td><td>&gt;3.4</td><td>✘</td><td>✔</td><td>✘</td><td>✘</td></tr>
+<tr><td>WorkOS</td><td>WorkOS Production API Key</td><td>workos_production_api_key</td><td>&gt;=3.12</td><td>✘</td><td>✔</td><td>✔</td><td>✘</td></tr>
+<tr><td>WorkOS</td><td>WorkOS Staging API Key</td><td>workos_staging_api_key</td><td>&gt;=3.12</td><td>✘</td><td>✔</td><td>✘</td><td>✘</td></tr>
 <tr><td>Yandex</td><td>Yandex.Cloud Access Secret</td><td>yandex_iam_access_secret</td><td>&gt;3.4</td><td>✔</td><td>✔</td><td>✘</td><td>✘</td></tr>
 <tr><td>Yandex</td><td>Yandex.Cloud API Key</td><td>yandex_cloud_api_key</td><td>*</td><td>✔</td><td>✔</td><td>✘</td><td>✘</td></tr>
 <tr><td>Yandex</td><td>Yandex.Cloud IAM Cookie</td><td>yandex_cloud_iam_cookie</td><td>*</td><td>✔</td><td>✔</td><td>✘</td><td>✘</td></tr>
